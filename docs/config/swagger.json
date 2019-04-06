@@ -1,0 +1,306 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Core API",
+    "description": "The worlds funnest little API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api/vi"
+    }
+  ],
+  "paths": {
+    "/categories": {
+      "get": {
+        "description": "Get all categories",
+        "responses": {
+          "200": {
+            "description": "Returned a list of categories",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Create a new category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCategory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returned the created category",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Category"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "get": {
+        "description": "Get One Category",
+        "responses": {
+          "200": {
+            "description": "Returned one category",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Category"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete One Category",
+        "responses": {
+          "200": {
+            "description": "Deleted one category",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Delete"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Replace a category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Category"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returned the updated category",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Category"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players": {
+      "get": {
+        "description": "Get all players",
+        "responses": {
+          "200": {
+            "description": "Returned a list of players",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayerList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Create a new Player",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPlayer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returned the created player",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Player"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "get": {
+        "description": "Get One Player",
+        "responses": {
+          "200": {
+            "description": "Returned one player",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Player"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete One Player",
+        "responses": {
+          "200": {
+            "description": "Deleted one player",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Delete"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Replace a Player",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Player"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returned the updated player",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Player"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CategoryList": {
+        "type": "array",
+        "example": [
+          {
+            "id": 1,
+            "name": "Electronics"
+          },
+          {
+            "id": 2,
+            "name": "Mechanical"
+          }
+        ]
+      },
+      "NewCategory": {
+        "type": "object",
+        "example": {
+          "name": "Food"
+        }
+      },
+      "Category": {
+        "type": "object",
+        "example": {
+          "id": 2,
+          "name": "Category Name"
+        }
+      },
+      "Delete": {
+        "type": "object",
+        "example": {}
+      },
+      "PlayerList": {
+        "type": "array",
+        "example": [
+          {
+            "id": 1,
+            "name": "Chris",
+            "position" : "P",
+            "throws" : "L",
+            "bats" : "L",
+            "team" : "Mariners"
+          },
+          {
+            "id": 2,
+            "name": "Mike",
+            "position" : "RF",
+            "throws" : "L",
+            "bats" : "R",
+            "team" : "Padres"
+          }
+        ]
+      },
+      "NewPlayer": {
+        "type": "object",
+        "example": {
+            "id": 3,
+            "name": "Dave",
+            "position" : "1B",
+            "throws" : "R",
+            "bats" : "R",
+            "team" : "Athletics"
+          }
+      },
+      "Player": {
+        "type": "object",
+        "example": {
+            "id": 4,
+            "name": "Phill",
+            "position" : "SS",
+            "throws" : "L",
+            "bats" : "R",
+            "team" : "Yankees"
+          }
+      }
+    }
+  }
+}
