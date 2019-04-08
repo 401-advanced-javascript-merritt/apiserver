@@ -7,7 +7,7 @@
  * @param  {} next
  * @param  {} =>{console.log('ServerError'
  * @param  {} err
- * @param  {err.message||err};res.status(500} ;leterror={error
+ * @param  {};res.status(500} ;leterror={error
  */
 module.exports = (err, req, res, next) => {
   console.log('Server Error', err);
