@@ -6,7 +6,7 @@ module.exports = (request, response) => {
   let id = [request.params.id];
   request.model.get(id)
     .then(res => {
-      response.status(200).sent('Got one');
+      response.status(200).send(res);
     })
     .catch(errorhandler);
 };

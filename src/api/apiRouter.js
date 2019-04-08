@@ -31,9 +31,9 @@ apiRouter.param('model', modelFinder);
 
 apiRouter.get('/api/:model/', auth(), handleGetAll);
 apiRouter.get('/api/:model/:id', auth(),  handleGetOne);
-apiRouter.post('/api/:model', auth('admin'), handleCreate);
-apiRouter.put('/api/:model/:id', auth('admin'), handleUpdate);
-apiRouter.delete('/api/:model/:id', auth('admin'), handleDelete);
+apiRouter.post('/api/:model', auth('create'), handleCreate);
+apiRouter.put('/api/:model/:id', auth('update'), handleUpdate);
+apiRouter.delete('/api/:model/:id', auth('delete'), handleDelete);
 
 // function handleGetAll(request, response) {
 //   console.log('get all function');
