@@ -4,7 +4,7 @@
  * @param  {} req
  * @param  {} res
  * @param  {} next
- * @param  {'ResourceNotFound'};res.status(404} =>{leterror={error
+ * @param  {};res.status(404} =>{leterror={error
  */
 module.exports = (req, res, next) => {
   let error = {error: 'Resource Not Found' };
