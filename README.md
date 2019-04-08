@@ -6,7 +6,7 @@
 ## Weekend Lab: API Server
 ### Chris Merritt
 ### Links and Resources
-* [PR]()
+* [PR](https://github.com/401-advanced-javascript-merritt/apiserver/pull/1)
 
 * [back-end](https://merritt-api-server.herokuapp.com/)
 
